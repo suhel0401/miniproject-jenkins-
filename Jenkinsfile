@@ -5,10 +5,6 @@ node {
 
     stage('Build') {
         sh 'mvn clean package'
-    }
-    post {
-        success {
-            archiveArtifacts artifacts: 'target/*.war', fingerprint: true
-        }
+        archiveArtifacts artifacts: 'target/*.war', fingerprint: true
     }
 }
