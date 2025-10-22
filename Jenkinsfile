@@ -10,7 +10,7 @@ node {
 
     stage('CQA') {
         withSonarQubeEnv('Suhel') {
-            withCredentials([string(credentialsId: 'Suhel', variable: 'SONAR_TOKEN')]) {
+            withCredentials([string(credentialsId: 'sonarcredentials', variable: 'SONAR_TOKEN')]) {
                 sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
             }
         }
