@@ -30,4 +30,7 @@ node {
     repository: 'myrepo',
     version: '1.0'
 }
+    stage('deploy') {
+        deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'nexus', path: '', url: 'http://54.172.53.48:8080')], contextPath: 'suhel', war: 'target/*.war'
+}
 }
