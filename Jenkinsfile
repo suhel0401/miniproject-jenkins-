@@ -21,13 +21,6 @@ node {
     }
 
     stage('Deploy') {
-        deploy adapters: [tomcat9(
-            alternativeDeploymentContext: '',
-            credentialsId: 'tomcat',
-            path: '',
-            url: 'http://184.72.199.97:8080'
-        )],
-        contextPath: 'flm',
-        war: 'target/loopwear-app-1.0.war'
+        deploy adapters: [tomcat9(alternativeDeploymentContext: '', credentialsId: 'tomcat', path: '', url: 'http://184.72.199.97:8080')], contextPath: 'loopwear', war: 'target/*.war'
     }
 }
