@@ -17,19 +17,7 @@ node {
     }
 
     stage('Artifact') {
-        nexusArtifactUploader artifacts: [[
-            artifactId: 'loopwear-app',
-            classifier: '',
-            file: 'target/loopwear-app-1.0.war',
-            type: 'war'
-        ]],
-        credentialsId: 'nexus',
-        groupId: 'com.loopwear',
-        nexusUrl: '54.83.110.110:8081',
-        nexusVersion: 'nexus3',
-        protocol: 'http',
-        repository: 'myrepo',
-        version: '1.0'
+      nexusArtifactUploader artifacts: [[artifactId: 'loopwear-app', classifier: '', file: 'target/loopwear-app-1.0.war', type: 'war']], credentialsId: 'nexus', groupId: 'com.loopwear', nexusUrl: '13.218.133.0:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Myrepo', version: '1.0'
     }
 
     stage('Deploy') {
@@ -37,7 +25,7 @@ node {
             alternativeDeploymentContext: '',
             credentialsId: 'tomcat',
             path: '',
-            url: 'http://54.172.53.48:8080'
+            url: 'http://184.72.199.97:8080'
         )],
         contextPath: 'flm',
         war: 'target/loopwear-app-1.0.war'
